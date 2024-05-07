@@ -1,0 +1,29 @@
+# Local Settings
+.env
+env/
+ENV/
+env.bak/
+
+# Virtual Environment
+.venv
+venv/
+venv.bak/
+
+# Editor-Specified Files
+.idea/
+
+# Byte-Compiled / Optimized / DLL Files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+*.pyo
+
+# Temporary Files
+*.log
+*.swp
+*.swo
+
+# Distribution / Packaging
+build/
+dist/
