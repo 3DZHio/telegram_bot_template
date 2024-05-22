@@ -13,7 +13,7 @@
 ### 📌 Create Virtual Environment
 
 ```shell
-  python -m venv venv
+  python3 -m venv venv
   venv\Scripts\activate
   ```
 
@@ -26,7 +26,7 @@
 ### ✏️ Define Variables in `.env`
 
 ```shell
-  rename .env.dist .env
+  mv .env.dist .env
   ```
 
 > [BOT_TOKEN](https://t.me/botfather)
@@ -34,5 +34,5 @@
 ### 🚀 Run Code
 
 ```shell
-  python -m src
+  python3 -m src
   ```
