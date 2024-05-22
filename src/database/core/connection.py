@@ -1,11 +1,7 @@
-from asyncio import WindowsSelectorEventLoopPolicy, set_event_loop_policy
-
 from psycopg_pool import AsyncConnectionPool
 from pydantic import PostgresDsn
 
 from src.config import settings
-
-set_event_loop_policy(WindowsSelectorEventLoopPolicy())  # For DataBase on Windows
 
 DSN: PostgresDsn = (
     "postgresql"
