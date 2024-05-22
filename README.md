@@ -1,5 +1,8 @@
 ## 📦 Setup
 
+* [Linux](https://github.com/3DZHio/telegram_bot_template/tree/master)
+* [Windows](https://github.com/3DZHio/telegram_bot_template/tree/windows)
+
 ### 🔗 Clone Repository
 
 ```shell
