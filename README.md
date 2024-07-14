@@ -10,7 +10,7 @@
 ### 📌 Create Virtual Environment
 
 ```shell
-  python3 -m venv venv
+  python -m venv venv
   venv\Scripts\activate
   ```
 
@@ -31,5 +31,5 @@
 ### 🚀 Run Code
 
 ```shell
-  python3 -m src
+  python -m src
   ```
