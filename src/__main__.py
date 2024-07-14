@@ -14,8 +14,10 @@ from src.logs import setup_logger
 
 
 async def main() -> None:
-    bot = Bot(token=settings.BOT_TOKEN.get_secret_value(),
-              default=DefaultBotProperties(parse_mode=ParseMode.HTML))  # Initializing Bot
+    bot = Bot(
+        token=settings.BOT_TOKEN.get_secret_value(),
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML),
+    )  # Initializing Bot
     storage = MemoryStorage()  # Create Storage
     dp = Dispatcher(storage=storage)  # Launch Dispatcher
 
@@ -26,7 +28,9 @@ async def main() -> None:
 
     try:
         await pool.open()  # Open Connection Pool
-        await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())  # Start Polling
+        await dp.start_polling(
+            bot, allowed_updates=dp.resolve_used_update_types()
+        )  # Start Polling
     finally:
         await bot.session.close()  # Close Bot Session
         await dp.storage.close()  # Close Storage
@@ -34,5 +38,7 @@ async def main() -> None:
 
 
 if __name__ == "__main__":  # Entry Point
-    with suppress(KeyboardInterrupt, SystemExit):  # Suppress KeyboardInterrupt and SystemExit Exceptions
+    with suppress(
+        KeyboardInterrupt, SystemExit
+    ):  # Suppress KeyboardInterrupt and SystemExit Exceptions
         run(main())  # Launch Code

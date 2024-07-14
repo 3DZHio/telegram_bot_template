@@ -18,7 +18,6 @@ class Settings(BaseSettings):
     PORT: SecretStr
     DATABASE: SecretStr
 
-
     # MAIN
     # Admin
     ADMIN_IDS: SecretStr
