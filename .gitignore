@@ -9,6 +9,9 @@ venv.bak/
 
 # Editor-Specified Files
 .idea/
+*.iml
+out
+gen
 
 # Temporary Files
 *.log
@@ -22,7 +25,7 @@ __pycache__/
 *.pyc
 *.pyo
 
-# C extensions
+# C Extensions
 *.so
 
 # Distribution / Packaging
@@ -49,11 +52,11 @@ MANIFEST
 *.manifest
 *.spec
 
-# Installer logs
+# Installer Logs
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+# Unit Test / Coverage Reports
 htmlcov/
 .tox/
 .nox/
@@ -72,19 +75,19 @@ cover/
 *.mo
 *.pot
 
-# Django stuff:
+# Django Stuff:
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask stuff:
+# Flask Stuff:
 instance/
 .webassets-cache
 
-# Scrapy stuff:
+# Scrapy Stuff:
 .scrapy
 
-# Sphinx documentation
+# Sphinx Documentation
 docs/_build/
 
 # PyBuilder
@@ -105,33 +108,33 @@ ipython_config.py
 # PEP 582
 __pypackages__/
 
-# Celery stuff
+# Celery Stuff
 celerybeat-schedule
 celerybeat.pid
 
-# SageMath parsed files
+# SageMath Parsed Files
 *.sage.py
 
-# Spyder project settings
+# Spyder Project Settings
 .spyderproject
 .spyproject
 
-# Rope project settings
+# Rope Project Settings
 .ropeproject
 
-# mkdocs documentation
+# MKDocs
 /site
 
-# mypy
+# MyPy
 .mypy_cache/
 .dmypy.json
 dmypy.json
 
-# Pyre type checker
+# Pyre Type Checker
 .pyre/
 
-# pytype static type analyzer
+# Pytype Static Type Analyzer
 .pytype/
 
-# Cython debug symbols
+# Cython Debug Symbols
 cython_debug/

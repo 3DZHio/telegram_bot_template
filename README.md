@@ -3,8 +3,8 @@
 ### 🔗 Clone Repository
 
 ```shell
-  git clone https://github.com/3DZHio/telegram-bot-template.git
-  cd telegram-bot-template
+  git clone https://github.com/3DZHio/telegram_bot_template.git
+  cd telegram_bot_template
   ```
 
 ### 📌 Create Virtual Environment
@@ -23,7 +23,7 @@
 ### ✏️ Define Variables in `.env`
 
 ```shell
-  mv .env.dist .env
+  mv .env.example .env
   ```
 
 > [BOT_TOKEN](https://t.me/botfather)

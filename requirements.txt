@@ -4,5 +4,7 @@ loguru
 psycopg
 psycopg-binary
 psycopg-pool
+pydantic
 pydantic-settings
 python-dotenv
+redis

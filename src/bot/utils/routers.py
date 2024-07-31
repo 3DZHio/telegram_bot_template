@@ -3,16 +3,16 @@ from aiogram import Router
 from src.bot.utils import filters
 
 # MESSAGES
-start_msg = Router()
+msg = Router()
 
 # CALLBACKS
-
+cb = Router()
 
 # INLINES
-
+inl = Router()
 
 # ERRORS
-
+err = Router()
 
 # EXTRA
 # Admin

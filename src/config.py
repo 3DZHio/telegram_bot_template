@@ -1,24 +1,31 @@
 from dotenv import load_dotenv
 from pydantic import SecretStr
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings
 
 
-class Settings(BaseSettings):
-    load_dotenv()  # Load .env
-    model_config = SettingsConfigDict(case_sensitive=True)  # Model Config
+class Settings(BaseSettings, case_sensitive=True):
+    load_dotenv()
 
     # PREREQUISITES
     # Bot
     BOT_TOKEN: SecretStr
 
     # DataBase
-    USER: SecretStr
-    PASSWORD: SecretStr
-    HOST: SecretStr
-    PORT: SecretStr
-    DATABASE: SecretStr
+    DB_USER: SecretStr
+    DB_PASSWORD: SecretStr
+    DB_HOST: SecretStr
+    DB_PORT: SecretStr
+    DB_NAME: SecretStr
+
+    # ReDiS
+    RDS_HOST: SecretStr
+    RDS_PORT: SecretStr
+    RDS_NAME: SecretStr
 
     # MAIN
+    # Logging
+    LOG_LEVEL: int
+
     # Admin
     ADMIN_IDS: SecretStr
 

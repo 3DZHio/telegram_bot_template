@@ -6,7 +6,7 @@ from src.config import settings
 
 class IsAdmin(Filter):
     def __init__(self) -> None:
-        self.admin_list = settings.ADMIN_IDS.get_secret_value().split(sep=",")
+        self.admin_ids = settings.ADMIN_IDS.get_secret_value()
 
     async def __call__(self, message: Message) -> bool:
-        return f"{message.from_user.id}" in self.admin_list
+        return f"{message.from_user.id}" in self.admin_ids

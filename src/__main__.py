@@ -1,44 +1,48 @@
+import logging
+import sys
 from asyncio import run
 from contextlib import suppress
 
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
-from aiogram.fsm.storage.memory import MemoryStorage
+from aiogram.fsm.storage.redis import RedisStorage
+from redis.asyncio import Redis
 
 from src.bot.handlers import get_routers
-from src.bot.misc import bot_commands
+from src.bot.misc.bot_commands import set_commands
 from src.config import settings
 from src.database.core.connection import pool
-from src.logs import setup_logger
+from src.log import setup_logger
 
 
 async def main() -> None:
+    setup_logger(level=settings.LOG_LEVEL)
     bot = Bot(
         token=settings.BOT_TOKEN.get_secret_value(),
         default=DefaultBotProperties(parse_mode=ParseMode.HTML),
-    )  # Initializing Bot
-    storage = MemoryStorage()  # Create Storage
-    dp = Dispatcher(storage=storage)  # Launch Dispatcher
-
-    setup_logger("INFO", ["aiogram.bot.api"])  # Logging
-    dp.include_routers(*get_routers())  # Routers | Handlers
-
-    await bot_commands.set_commands(bot)  # Bot Commands
-
+    )
+    await set_commands(bot)
+    dp = Dispatcher(
+        storage=RedisStorage(
+            redis=Redis(
+                host=settings.RDS_HOST.get_secret_value(),
+                port=settings.RDS_PORT.get_secret_value(),
+                db=settings.RDS_NAME.get_secret_value(),
+            )
+        )
+    )
+    dp.include_routers(*get_routers())
     try:
-        await pool.open()  # Open Connection Pool
-        await dp.start_polling(
-            bot, allowed_updates=dp.resolve_used_update_types()
-        )  # Start Polling
+        await pool.open()
+        await bot.delete_webhook(drop_pending_updates=True)
+        await dp.start_polling(bot)
     finally:
-        await bot.session.close()  # Close Bot Session
-        await dp.storage.close()  # Close Storage
-        await pool.close()  # Close Connection Pool
+        await bot.session.close()
+        await dp.storage.close()
+        await pool.close()
 
 
-if __name__ == "__main__":  # Entry Point
-    with suppress(
-        KeyboardInterrupt, SystemExit
-    ):  # Suppress KeyboardInterrupt and SystemExit Exceptions
-        run(main())  # Launch Code
+if __name__ == "__main__":
+    with suppress(KeyboardInterrupt, SystemExit):
+        run(main())

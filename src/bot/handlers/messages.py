@@ -8,16 +8,15 @@ from src.database.models import users
 
 
 # ADMIN
-@routers.admin.message(F.text)
-async def cmd_admin(message: Message) -> None:
-    uid = message.from_user.id
+@routers.admin.message(F.text == outer.get_admin)
+async def admin(message: Message) -> None:
     await message.delete()
     await message.answer(text=outer.msg_admin)
 
 
 # START
-@routers.start_msg.message(CommandStart(), F.text)
-async def cmd_start(message: Message) -> None:
+@routers.msg.message(CommandStart())
+async def start(message: Message) -> None:
     uid = message.from_user.id
     await message.delete()
     if not (await users.exists(uid)):
