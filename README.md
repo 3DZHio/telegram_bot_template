@@ -1,4 +1,11 @@
-## 📦 Setup
+## 📦 System Dependencies
+
+- [Python](https://www.python.org/downloads/)
+- [PoeTry](https://github.com/python-poetry/poetry)
+- [ReDiS](https://github.com/redis/redis)
+- [PostgreSQL](https://www.postgresql.org/download/linux/)
+
+## ⚙️ Setup
 
 ### 🔗 Clone Repository
 
@@ -7,26 +14,17 @@
   cd telegram_bot_template
   ```
 
-### 📌 Create Virtual Environment
-
-```shell
-  python -m venv venv
-  venv\Scripts\activate
-  ```
-
 ### 📡 Install Packages
 
 ```shell
-  pip install -r requirements.txt
+  poetry install
   ```
 
-### ✏️ Define Variables in `.env`
+### ✏️ Identify Secrets
 
 ```shell
   mv .env.example .env
   ```
-
-> [BOT_TOKEN](https://t.me/botfather)
 
 ### 🚀 Run Code
 

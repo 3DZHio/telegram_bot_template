@@ -7,6 +7,7 @@ license = "MIT"
 readme = "README.md"
 packages = [{ include = "*", from = "src" }]
 
+
 [tool.poetry.dependencies]
 python = "^3.12"
 aiogram = "^3.10.0"
