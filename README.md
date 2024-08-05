@@ -1,7 +1,6 @@
 ## 📦 System Dependencies
 
 - [Python](https://www.python.org/downloads/)
-- [PoeTry](https://github.com/python-poetry/poetry)
 - [ReDiS](https://github.com/redis/redis)
 - [PostgreSQL](https://www.postgresql.org/download/linux/)
 
@@ -10,24 +9,26 @@
 ### 🔗 Clone Repository
 
 ```shell
-  git clone https://github.com/3DZHio/telegram_bot_template.git
-  cd telegram_bot_template
-  ```
+git clone https://github.com/3DZHio/telegram_bot_template.git
+cd telegram_bot_template/docker/
+mv .env.example .env
+echo "ADD BOT TOKEN TO .env FILE"
+```
 
-### 📡 Install Packages
-
-```shell
-  poetry install
-  ```
-
-### ✏️ Identify Secrets
+### 🚀 Run Docker
 
 ```shell
-  mv .env.example .env
-  ```
+make run
+```
 
-### 🚀 Run Code
+### 🛑 Stop Docker
 
 ```shell
-  python -m src
-  ```
+make stop
+```
+
+### 📌 MakeFile Info
+
+```shell
+cat Makefile
+```
