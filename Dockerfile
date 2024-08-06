@@ -11,7 +11,6 @@ ENV PIP_DISABLE_PIP_VERSION_CHECK=1
 
 FROM base AS builder
 
-COPY requirements.txt .
 RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=requirements.txt,target=requirements.txt \
     python -m pip install -r requirements.txt

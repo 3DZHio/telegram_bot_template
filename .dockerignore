@@ -1,34 +1,34 @@
 # Docker
-Dockerfile
-docker-compose*
-compose.yaml
-.dockerignore
+**/*Dockerfile*
+**/docker-compose*
+**/compose.y*ml
+**/.dockerignore
 
 # License
-LICENSE
+**/*LICENSE*
 
 # ReadMe
-README.md
+**/*README*
 
 # MakeFile
-Makefile
+**/*Makefile*
 
 # Git
-.git
-.gitignore
+**/.git
+**/.gitignore
 
 # Environments
-venv/
-.venv
+**/venv
+**/.venv
 
 # PyCharm
-.idea/
+**/.idea
 
 # Python
-**/__pycache__/
+**/__pycache__
 
 # Data
-data/
+**/data
 
 # Init
-init/
+**/init
