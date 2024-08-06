@@ -4,25 +4,25 @@ docker-compose*
 compose.yaml
 .dockerignore
 
-# MakeFile
-Makefile
-
 # License
 LICENSE
 
 # ReadMe
 README.md
 
+# MakeFile
+Makefile
+
 # Git
 .git
 .gitignore
 
 # Environments
-venv
+venv/
 .venv
 
-# Editor-Specified Files
-.idea
+# PyCharm
+.idea/
 
 # Python
 **/__pycache__/
