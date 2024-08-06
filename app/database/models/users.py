@@ -1,21 +1,17 @@
-from app.database.core.functions import select, insert
-from app.database.core.methods import fetchone, transaction
-from app.database.text import all_columns, any_columns, inset, users, uid_condition
+from database.core.functions import select, insert
+from database.core.methods import fetchone, transaction
 
 
 async def exists(uid: int) -> bool:
-	"""Check for Existence"""
-	return bool(await fetchone(select(any_columns, users, uid_condition),
-	                           (uid,)))
+    """Check for Existence"""
+    return bool(await fetchone(select("1", "users", "uid = $1"), uid))
 
 
 async def add(uid: int) -> None:
-	"""Add"""
-	await transaction(insert(users, "uid", inset),
-	                  (uid,))
+    """Add"""
+    await transaction(insert("users", "uid", "$1"), uid)
 
 
 async def info(uid: int) -> dict:
-	"""Information"""
-	return await fetchone(select(all_columns, users, uid_condition),
-	                      (uid,))
+    """Information"""
+    return await fetchone(select("*", "users", "uid = $1"), uid)

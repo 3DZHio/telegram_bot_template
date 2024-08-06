@@ -1,26 +1,25 @@
-from psycopg.rows import dict_row
+from asyncpg import create_pool
 
-from app.database.core.connection import pool
-
-
-async def fetchone(query: str, params: tuple = None) -> dict:
-	"""FetchOne"""
-	async with pool.connection() as connection:
-		async with connection.cursor(row_factory=dict_row) as cursor:
-			await cursor.execute(query, params)
-			return await cursor.fetchone()
+from config import DATABASE_DSN
 
 
-async def fetchall(query: str, params: tuple = None) -> list[dict]:
-	"""FetchAll"""
-	async with pool.connection() as connection:
-		async with connection.cursor(row_factory=dict_row) as cursor:
-			await cursor.execute(query, params)
-			return await cursor.fetchall()
+async def fetchone(query: str, *params) -> dict:
+    """FetchOne"""
+    async with create_pool(dsn=DATABASE_DSN) as pool:
+        async with pool.acquire() as connection:
+            return await connection.fetchrow(query, *params)
 
 
-async def transaction(query: str, params: tuple = None) -> None:
-	"""Transaction"""
-	async with pool.connection() as connection:
-		async with connection.transaction():
-			await connection.execute(query, params)
+async def fetchall(query: str, *params) -> list[dict]:
+    """FetchAll"""
+    async with create_pool(dsn=DATABASE_DSN) as pool:
+        async with pool.acquire() as connection:
+            return await connection.fetch(query, *params)
+
+
+async def transaction(query: str, *params) -> None:
+    """Transaction"""
+    async with create_pool(dsn=DATABASE_DSN) as pool:
+        async with pool.acquire() as connection:
+            async with connection.transaction():
+                await connection.execute(query, *params)

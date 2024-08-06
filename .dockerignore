@@ -1,0 +1,34 @@
+# Docker
+Dockerfile
+docker-compose*
+compose.yaml
+.dockerignore
+
+# MakeFile
+Makefile
+
+# License
+LICENSE
+
+# ReadMe
+README.md
+
+# Git
+.git
+.gitignore
+
+# Environments
+venv
+.venv
+
+# Editor-Specified Files
+.idea
+
+# Python
+**/__pycache__/
+
+# Data
+data/
+
+# Init
+init/

@@ -1,9 +1,8 @@
 aiogram
+asyncpg
 asyncio
 loguru
-psycopg
-psycopg-binary
-psycopg-pool
+python-dotenv
 pydantic
 pydantic-settings
 redis

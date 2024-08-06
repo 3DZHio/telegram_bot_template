@@ -1,6 +1,6 @@
 from aiogram import Router
 
-from app.bot.utils import filters
+from bot.utils import filters
 
 # MESSAGES
 msg = Router()
