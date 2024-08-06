@@ -1,6 +1,6 @@
 from asyncpg import create_pool
 
-from config import DATABASE_DSN
+from app.config import DATABASE_DSN
 
 
 async def fetchone(query: str, *params) -> dict:

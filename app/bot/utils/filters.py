@@ -1,7 +1,7 @@
 from aiogram.filters import Filter
 from aiogram.types import Message
 
-from config import settings
+from app.config import settings
 
 
 class IsAdmin(Filter):
