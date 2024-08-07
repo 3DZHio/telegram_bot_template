@@ -8,7 +8,7 @@ from database.models import users
 
 
 # ADMIN
-@routers.admin.message(F.text == outer.get_admin)
+@routers.admin_msg.message(F.text == outer.get_admin)
 async def admin(message: Message) -> None:
     await message.delete()
     await message.answer(text=outer.msg_admin)

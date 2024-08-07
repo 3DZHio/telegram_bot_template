@@ -16,5 +16,9 @@ err = Router()
 
 # EXTRA
 # Admin
-admin = Router()
-admin.message.filter(filters.IsAdmin())
+admin_msg = Router()
+admin_msg.message.filter(filters.IsAdmin())
+# admin_cb = Router()
+# admin_cb.message.filter(filters.IsAdmin())
+# admin_inl = Router()
+# admin_inl.message.filter(filters.IsAdmin())

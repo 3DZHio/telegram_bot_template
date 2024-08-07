@@ -1,5 +1,5 @@
 from database.core.functions import select, insert
-from database.core.methods import fetchone, transaction
+from database.core.methods import fetchone, transaction, fetchall
 
 
 async def exists(uid: int) -> bool:

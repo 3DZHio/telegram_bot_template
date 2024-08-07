@@ -22,6 +22,8 @@ def get_routers() -> list[Router]:
     ]
     # EXTRA
     extra = [
-        messages.routers.admin,
+        messages.routers.admin_msg,
+        # callbacks.routers.admin_cb,
+        # inlines.routers.admin_inl,
     ]
     return msg + cb + inl + err + extra
